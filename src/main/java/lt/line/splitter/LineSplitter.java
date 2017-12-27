@@ -15,11 +15,11 @@ public class LineSplitter {
     }
 
     public void run() throws IOException {
-        final URL url = getClass().getResource("/testFile.txt");
+        final URL url = getClass().getResource("/data/testFile.txt");
         if (url != null) {
             final File textFile = new File(url.getFile());
             System.out.println(textFile);
-            lineSplitterImpl.splitAndWriteToFile(textFile, 10);
+            lineSplitterImpl.splitAndWriteToFile(textFile, 20, textFile.getParent());
         }
         else {
             System.out.println("File not found!");
