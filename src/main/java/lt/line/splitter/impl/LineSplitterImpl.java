@@ -11,20 +11,23 @@ import java.util.StringTokenizer;
 
 public class LineSplitterImpl {
 
-    public void splitAndWriteToFile(final File file, final int lineLength, final String destination) throws IOException {
-        splitAndWriteToFile(FileSystemUtils.readTextFromFile(file), lineLength, destination);
+    public Text splitAndWriteToFile(final File file, final int lineLength, final String destination) throws IOException {
+        return splitAndWriteToFile(FileSystemUtils.readTextFromFile(file), lineLength, destination);
     }
 
-    public void splitAndWriteToFile(final String text, final int lineLength, final String destination) throws IOException {
+    public Text splitAndWriteToFile(final String text, final int lineLength, final String destination) throws IOException {
+        Text splittedText = null;
         if (text != null && !text.isEmpty() && lineLength > 0) {
             final String oneLineText = text.replaceAll(System.lineSeparator(), " ");
-            System.out.println(oneLineText);
 
-            final Text splittedText = getSplittedText(oneLineText, lineLength);
+            splittedText = getSplittedText(oneLineText, lineLength);
 
-            FileSystemUtils.writeToFile(splittedText.getText(),
-                    new StringBuilder().append(destination).append("/resultFile.txt").toString());
+            if (!CommonUtils.isStringEmpty(destination)) {
+                FileSystemUtils.writeToFile(splittedText.getText(),
+                        new StringBuilder().append(destination).append("/resultFile.txt").toString());
+            }
         }
+        return splittedText;
     }
 
     private Text getSplittedText(final String oneLineText, final int lineLength) {

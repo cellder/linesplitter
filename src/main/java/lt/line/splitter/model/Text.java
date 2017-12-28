@@ -87,6 +87,13 @@ public class Text {
         return String.join(System.lineSeparator(), stringLines);
     }
 
+    @Override
+    public String toString() {
+        return "Text{" +
+                "splittedText=" + getText() +
+                '}';
+    }
+
     private class Line {
 
         private final int lineLength;
