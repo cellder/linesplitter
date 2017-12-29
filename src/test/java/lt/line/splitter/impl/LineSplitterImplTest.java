@@ -36,11 +36,13 @@ public class LineSplitterImplTest {
     @Parameters(name = "{index}: splitAndWriteToFile({0}, {1}) expectedLineCount={2}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 10, 32},
-                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 20, 14},
-                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 30, 9},
-                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 40, 7},
-                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 50, 6}
+                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 10, 8294},
+                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 20, 3767},
+                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 30, 2420},
+                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 40, 1784},
+                {LineSplitterImplTest.class.getResource("/data/testFile.txt").getFile(), 50, 1408},
+                {LineSplitterImplTest.class.getResource("/data/testFile2.txt").getFile(), 13, 2},
+                {LineSplitterImplTest.class.getResource("/data/testFile3.txt").getFile(), 7, 4}
         });
     }
 

@@ -31,6 +31,6 @@ public class FileSystemUtils {
     public static void writeToFile(final String text, final String destination) throws IOException {
         final Path path = Paths.get(destination);
         System.out.println(path.toString());
-        Files.write(path, text.getBytes(), StandardOpenOption.CREATE);
+        Files.write(path, text.getBytes());
     }
 }
